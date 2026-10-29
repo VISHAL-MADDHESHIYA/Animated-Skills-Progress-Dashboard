@@ -2,6 +2,9 @@
 
 A production-quality, highly interactive skills dashboard built with Vanilla HTML5, CSS3, and JavaScript. This project was developed to fulfill the Day 29 Web Development Internship Task, focusing on smooth CSS animations, scroll detection, and modern UI/UX principles.
 
+🔗 Live Demo: https://vishal-maddheshiya.github.io/Animated-Skills-Progress-Dashboard/
+💻 GitHub Repo: https://github.com/VISHAL-MADDHESHIYA/Animated-Skills-Progress-Dashboard/
+
 ## 🚀 Features
 
 - **Premium Dark/Light Theme**: Glassmorphism design with smooth theme transitions.
