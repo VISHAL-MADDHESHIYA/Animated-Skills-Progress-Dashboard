@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills & Expertise | Dashboard</title>
+    <meta name="description" content="A premium, animated skills and progress dashboard built with HTML, CSS, and Vanilla JavaScript.">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Prevents Flash of Unstyled Content (FOUC) for theme -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <!-- Background Pattern -->
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>Dev.Portfolio</span>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+                <!-- Sun Icon (Light mode) -->
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <!-- Moon Icon (Dark mode) -->
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="status-badge fade-in">
+                <span class="pulse-dot"></span>
+                Available for work
+            </div>
+            <h1 class="fade-in">My Skills & Expertise</h1>
+            <p class="subtitle fade-in">A comprehensive overview of my technical proficiency, tools, and design capabilities.</p>
+            
+            <!-- Dashboard Summary -->
+            <div class="dashboard-summary fade-in">
+                <div class="summary-card glass">
+                    <span class="summary-label">Total Skills</span>
+                    <span class="summary-value" id="total-skills">0</span>
+                </div>
+                <div class="summary-card glass">
+                    <span class="summary-label">Avg. Proficiency</span>
+                    <span class="summary-value"><span id="avg-proficiency">0</span>%</span>
+                </div>
+                <button id="replay-btn" class="btn btn-primary glass" aria-label="Replay animations">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 4 23 10 17 10"></polyline>
+                        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                    </svg>
+                    Replay
+                </button>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills-section container" id="skills">
+            <!-- Filter Tabs -->
+            <div class="filters fade-in" role="tablist" aria-label="Filter skills by category">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Skills</button>
+                <button class="filter-btn" data-filter="frontend" role="tab" aria-selected="false">Frontend</button>
+                <button class="filter-btn" data-filter="tools" role="tab" aria-selected="false">Tools</button>
+                <button class="filter-btn" data-filter="design" role="tab" aria-selected="false">Design</button>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="skills-grid" id="skills-grid">
+                
+                <!-- Skill Card 1 -->
+                <article class="skill-card glass" data-category="frontend" data-progress="95">
+                    <div class="skill-header">
+                        <div class="skill-icon html-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>HTML5</h3>
+                            <span class="skill-category">Frontend</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="HTML5 proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+                <!-- Skill Card 2 -->
+                <article class="skill-card glass" data-category="frontend" data-progress="90">
+                    <div class="skill-header">
+                        <div class="skill-icon css-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>CSS3</h3>
+                            <span class="skill-category">Frontend</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="CSS3 proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+                <!-- Skill Card 3 -->
+                <article class="skill-card glass" data-category="frontend" data-progress="85">
+                    <div class="skill-header">
+                        <div class="skill-icon js-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>JavaScript</h3>
+                            <span class="skill-category">Frontend</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="JavaScript proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+                <!-- Skill Card 4 -->
+                <article class="skill-card glass" data-category="design" data-progress="90">
+                    <div class="skill-header">
+                        <div class="skill-icon responsive-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Responsive Design</h3>
+                            <span class="skill-category">Design</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Responsive Design proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+                <!-- Skill Card 5 -->
+                <article class="skill-card glass" data-category="tools" data-progress="80">
+                    <div class="skill-header">
+                        <div class="skill-icon git-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 9v6a3 3 0 0 0 3 3h6"></path></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Git & GitHub</h3>
+                            <span class="skill-category">Tools</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Git and GitHub proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+                <!-- Skill Card 6 -->
+                <article class="skill-card glass" data-category="design" data-progress="75">
+                    <div class="skill-header">
+                        <div class="skill-icon uiux-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>UI/UX Design</h3>
+                            <span class="skill-category">Design</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="UI and UX Design proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+                <!-- Skill Card 7 -->
+                <article class="skill-card glass" data-category="frontend" data-progress="70">
+                    <div class="skill-header">
+                        <div class="skill-icon react-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"></circle><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"></path></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>React Basics</h3>
+                            <span class="skill-category">Frontend</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="React Basics proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+                <!-- Skill Card 8 -->
+                <article class="skill-card glass" data-category="frontend" data-progress="85">
+                    <div class="skill-header">
+                        <div class="skill-icon a11y-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                        </div>
+                        <div class="skill-info">
+                            <h3>Web Accessibility</h3>
+                            <span class="skill-category">Frontend</span>
+                        </div>
+                    </div>
+                    <div class="progress-container" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Web Accessibility proficiency">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-text">0%</span>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state hidden">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+                <h3>No skills found</h3>
+                <p>Try selecting a different category.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <footer class="footer container">
+        <p>&copy; 2024 Dev.Portfolio. Built for the Day 29 Internship Task.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
